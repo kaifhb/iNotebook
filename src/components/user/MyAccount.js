@@ -18,7 +18,7 @@ const MyAccount = () => {
     },[userToken,navigate]);
 
     const getUserDetails = async (userToken) =>{
-        const resp = await fetch(`${APIURL}/api/auth/get_user_data`,{
+        const resp = await fetch(`/api/auth/get_user_data`,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json','auth-token':userToken}
         })
@@ -34,7 +34,7 @@ const MyAccount = () => {
     const handleOnSubmit = async (e) =>{
         e.preventDefault();
         const userData = {'name':userDetails.loginName,'password':userDetails.password};
-        const resp = await fetch(`${APIURL}/api/auth/update_user`,{
+        const resp = await fetch(`/api/auth/update_user`,{
             method: 'PUT',
             headers: { 'Content-Type': 'application/json','auth-token':userToken},
             body: JSON.stringify(userData)

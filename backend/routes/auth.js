@@ -59,7 +59,7 @@ router.post('/login',[
     body('email','Please enter valid email').isEmail(),
     body('password','Password Cannot be empty').exists()
 ],async (req,res) => {
-    console.log(process.env.JWT_SECRET);
+    // console.log(process.env.JWT_SECRET);
     // error handling if there are any validation errors
     const result = validationResult(req);
     if (!result.isEmpty()) {
@@ -117,7 +117,7 @@ router.put('/update_user',authenticateToken,async (req,res) =>{
         let user = await User.findByIdAndUpdate(userId,{$set: userData},{new: true});
 
         let authToken = jwt.sign({ id: userId }, JWT_SECRET);
-        console.log(authToken);
+        // console.log(authToken);
 
         user.authToken = authToken;
         res.json({user,authToken});

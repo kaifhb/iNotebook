@@ -17,7 +17,7 @@ const Register = () => {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
-    const resp = await fetch(`${APIURL}/api/auth/createuser`, {
+    const resp = await fetch(`/api/auth/createuser`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(creds)

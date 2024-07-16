@@ -14,7 +14,7 @@ const Login = () => {
 
     const handleOnSubmit = async (e) =>{
         e.preventDefault();
-        const resp = await fetch(`${APIURL}/api/auth/login`,{
+        const resp = await fetch(`/api/auth/login`,{
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify(creds)

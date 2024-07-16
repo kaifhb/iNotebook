@@ -13,7 +13,7 @@ const NoteState = (props) => {
 
     // Get all notes
     const getAllNotes = async () => {
-      const resp = await fetch(`${APIURL}/api/notes`,{
+      const resp = await fetch(`/api/notes`,{
         method: 'GET',
         headers: { 'Content-Type': 'application/json' ,'auth-token':authToken}
       });
@@ -24,7 +24,7 @@ const NoteState = (props) => {
 
     // Add new note
     const addNote = async (note) => {
-        const resp = await fetch(`${APIURL}/api/notes`,{
+        const resp = await fetch(`/api/notes`,{
           method: 'POST',
           headers: { 'Content-Type': 'application/json' ,'auth-token':authToken},
           body:  JSON.stringify(note)
@@ -39,7 +39,7 @@ const NoteState = (props) => {
     // edit Note
     const editNote = async (noteId,data) => {
 
-      await fetch(`${APIURL}/api/notes/${noteId}`,{
+      await fetch(`/api/notes/${noteId}`,{
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' ,'auth-token':authToken},
         body:  JSON.stringify(data)
@@ -58,7 +58,7 @@ const NoteState = (props) => {
 
     const deleteNote = async (noteId) => {
 
-      await fetch(`${APIURL}/api/notes/${noteId}`,{
+      await fetch(`/api/notes/${noteId}`,{
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' ,'auth-token':authToken}
       });
